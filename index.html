@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf8">
+  <title>Шифрування Віженера</title>
+  <meta name="description" content="A suite of tools for handling decryption of Vigenere ciphers in the browser">
+  <meta name="viewport" content="width=320, initial-scale=1">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+  <section>
+
+    <h2>Шифр Віженера</h2>
+
+
+  </section>
+  <section>
+    <h3>Текст для шифрування</h3>
+    <textarea id="source-ciphertext" autocomplete="off" spellcheck="false"
+      placeholder="Введіть свій текст сюди"></textarea>
+  </section>
+  <section>
+    <div>
+      <h3>Таблиця Вігенера</h3>
+      <p>Залиште бланк порожнім для стандартного виконання</p>
+
+      <input id="source-tableword" value="" placeholder="Table keyword">
+      <pre id="sink-table" onclick="selectText('sink-table');">&nbsp;</pre>
+  </section>
+  <section>
+    <h3>Аналіз Т'юрінга</h3>
+    <p>Встановіть довжину ключа</p>
+    <input id="source-length" placeholder="Довжина ключа" type="number" list="true" min="1" max="30" step="1">
+    <pre id="sink-turings" onclick="selectText('sink-turings');">&nbsp;</pre>
+  </section>
+  <section>
+    <h3>Створення індивідуального ключа</h3>
+    <p>Cкопіюйте створений ключ для шифрування</p>
+    <input id="source-regex" placeholder="" type="text" autocomplete="off" autocorrect="off">
+    <div id="sink-suggestions" onclick="selectText('sink-suggestions');">&nbsp;</div>
+  </section>
+  <section>
+    <h3>Ключ</h3>
+    <p>Введіть ключ з меню вище, щоб зашифрувати слово</p>
+    <input id="source-keyword" placeholder="Ключ" type="text" autocomplete="off" autocorrect="off">
+    <pre id="sink-decrypted" onclick="selectText('sink-decrypted');">&nbsp;</pre>
+  </section>
+  <section id="encrypt">
+    <h2>Дешифрування</h2>
+
+    <p>Введіть текст нижче, щоб дешифрувати за допомогою наведеного вище ключового слова.</p>
+    <textarea id="source-plaintext" autocomplete="on" spellcheck="true"
+      placeholder="Вставте зашифрований текст сюди:"></textarea>
+    <pre id="sink-encrypted" onclick="selectText('sink-encrypted');">&nbsp;</pre>
+  </section>
+  <footer>
+    <div style="border-top:1px solid #fff ;"></div>
+    <h2>Антон Баранський</h2>
+    <p>Розрахунково-графічна робота 301 ТН</p>
+  </footer>
+  <script src="js/util.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    function ready(func) {
+      if (document.readyState != 'loading') {
+        func();
+      } else {
+        document.addEventListener('DOMContentLoaded', func);
+      }
+    }
+
+    ready(function () {
+      site = new app();
+      site.init();
+    });
+  </script>
+</body>
+
+</html>
